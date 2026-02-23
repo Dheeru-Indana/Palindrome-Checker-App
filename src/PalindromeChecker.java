@@ -7,7 +7,7 @@ public class PalindromeChecker {
         System.out.println("Version ; 1.0");
         System.out.println("System initialized successfully!");
 
-        String str = new String("noon");
+        String str = new String("civic");
         //String isPalindrome = new String("True");
         int j = str.length();
         // UC2
@@ -69,21 +69,41 @@ public class PalindromeChecker {
 //        }
 
         //UC6
+//        boolean isPalindrome= true;
+//        Queue<Character> charqueue = new LinkedList<>();
+//        Stack<Character> charstack= new Stack<>();
+//        for(char c:str.toCharArray()){
+//            charstack.push(c);
+//        }
+//        for(char c:str.toCharArray()){
+//            charqueue.offer(c);
+//        }
+//        while(!charstack.isEmpty() && !charqueue.isEmpty()){
+//            char stackelement=charstack.pop();
+//            char queueelement=charqueue.poll();
+//            if(stackelement !=(queueelement)){
+//                isPalindrome=false;
+//                break;
+//            }
+//        }
+//
+//        if(isPalindrome){
+//            System.out.println("Is it a palindrome?: True");
+//        }else{
+//            System.out.println("Is it a palindrome?: False");
+//        }
+
+        //UC7
+        Deque<Character> chardeque = new ArrayDeque<>();
         boolean isPalindrome= true;
-        Queue<Character> charqueue = new LinkedList<>();
-        Stack<Character> charstack= new Stack<>();
         for(char c:str.toCharArray()){
-            charstack.push(c);
+            chardeque.offerFirst(c);
         }
-        for(char c:str.toCharArray()){
-            charqueue.offer(c);
-        }
-        while(!charstack.isEmpty() && !charqueue.isEmpty()){
-            char stackelement=charstack.pop();
-            char queueelement=charqueue.poll();
-            if(stackelement !=(queueelement)){
+        while(chardeque.size()>1){
+            char first=chardeque.removeFirst();
+            char last=chardeque.removeLast();
+            if(first!=last){
                 isPalindrome=false;
-                break;
             }
         }
 
@@ -92,6 +112,7 @@ public class PalindromeChecker {
         }else{
             System.out.println("Is it a palindrome?: False");
         }
+
     }
 
 }
