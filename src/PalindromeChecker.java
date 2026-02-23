@@ -7,8 +7,8 @@ public class PalindromeChecker {
         System.out.println("Version ; 1.0");
         System.out.println("System initialized successfully!");
 
-        String str = new String("madam");
-        String isPalindrome = new String("True");
+        String str = new String("radar");
+        //String isPalindrome = new String("True");
         int j = str.length();
         // UC2
 //        for (int i = 0; i < str.length() / 2; i++) {
@@ -22,12 +22,32 @@ public class PalindromeChecker {
 //        }else{
 //            System.out.println("Is it a palindrome?: False");
 //        }
-        String rev=new String("");
-        for(int i=str.length()-1;i>=0;i--){
-            rev+=str.charAt(i);
+        //UC3
+//        String rev=new String("");
+//        for(int i=str.length()-1;i>=0;i--){
+//            rev+=str.charAt(i);
+//        }
+//
+//        if(str.equals(rev)){
+//            System.out.println("Is it a palindrome?: True");
+//        }else{
+//            System.out.println("Is it a palindrome?: False");
+//        }
+
+        //UC4
+        char[] chars= str.toCharArray();
+        int start=0;
+        int end= chars.length -1;
+        boolean isPalindrome= true;
+        while(start<end){
+            if(chars[start]!=chars[end]){
+                isPalindrome=false;
+                break;
+            }
+            start++; end--;
         }
 
-        if(str.equals(rev)){
+        if(isPalindrome){
             System.out.println("Is it a palindrome?: True");
         }else{
             System.out.println("Is it a palindrome?: False");
