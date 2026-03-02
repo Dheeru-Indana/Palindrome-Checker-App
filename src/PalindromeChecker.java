@@ -9,7 +9,7 @@ public class PalindromeChecker {
 
         String str = new String("civic");
         //String isPalindrome = new String("True");
-        int j = str.length();
+        //int j = str.length();
         // UC2
 //        for (int i = 0; i < str.length() / 2; i++) {
 //            j = j - 1;
@@ -94,22 +94,43 @@ public class PalindromeChecker {
 //        }
 
         //UC7
-        Deque<Character> chardeque = new ArrayDeque<>();
-        boolean isPalindrome= true;
-        for(char c:str.toCharArray()){
-            chardeque.offerFirst(c);
+//        Deque<Character> chardeque = new ArrayDeque<>();
+//        boolean isPalindrome= true;
+//        for(char c:str.toCharArray()){
+//            chardeque.offerFirst(c);
+//        }
+//        while(chardeque.size()>1){
+//            char first=chardeque.removeFirst();
+//            char last=chardeque.removeLast();
+//            if(first!=last){
+//                isPalindrome=false;
+//            }
+//        }
+//
+//        if(isPalindrome){
+//            System.out.println("Is it a palindrome?: True");
+//        }else{
+//            System.out.println("Is it a palindrome?: False");
+//        }
+
+        //UC8
+        boolean isPalindrome = true;
+        LinkedList<Character> charlist = new LinkedList<>();
+        for (char c : str.toCharArray()) {
+            charlist.add(c);
         }
-        while(chardeque.size()>1){
-            char first=chardeque.removeFirst();
-            char last=chardeque.removeLast();
-            if(first!=last){
-                isPalindrome=false;
+        while (charlist.size() > 1) {
+            char first = charlist.removeFirst();
+            char last  = charlist.removeLast();
+            if (first != last) {
+                isPalindrome = false;
+                break;
             }
         }
 
-        if(isPalindrome){
+        if (isPalindrome) {
             System.out.println("Is it a palindrome?: True");
-        }else{
+        } else {
             System.out.println("Is it a palindrome?: False");
         }
 
