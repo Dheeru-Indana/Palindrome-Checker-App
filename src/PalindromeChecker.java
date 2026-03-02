@@ -133,22 +133,36 @@ public class PalindromeChecker {
 //        } else {
 //            System.out.println("Is it a palindrome?: False");
 //        }
-        if(Palindromecheckfn(str, 0, str.length() - 1)){
+        //UC9
+//        if(Palindromecheckfn(str, 0, str.length() - 1)){
+//            System.out.println("Is it a palindrome?: True");
+//        } else {
+//            System.out.println("Is it a palindrome?: False");
+//
+//        }
+        //UC10
+        String processed = str.toLowerCase().replaceAll("[^a-zA-z0-9]","");
+        String rev = new StringBuilder(processed).reverse().toString();
+
+        if(processed.equals(rev)){
             System.out.println("Is it a palindrome?: True");
-        } else {
+        }
+        else {
             System.out.println("Is it a palindrome?: False");
 
         }
 
-    }
-    public static boolean Palindromecheckfn(String str, int start, int end) {
-        if (start >= end) {
-            return true;
-        }
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
 
-        return Palindromecheckfn(str, start + 1, end - 1);
     }
+    //UC9 UDF
+//    public static boolean Palindromecheckfn(String str, int start, int end) {
+//        if (start >= end) {
+//            return true;
+//        }
+//        if (str.charAt(start) != str.charAt(end)) {
+//            return false;
+//        }
+//
+//        return Palindromecheckfn(str, start + 1, end - 1);
+//    }
 }
