@@ -141,17 +141,22 @@ public class PalindromeChecker {
 //
 //        }
         //UC10
-        String processed = str.toLowerCase().replaceAll("[^a-zA-z0-9]","");
-        String rev = new StringBuilder(processed).reverse().toString();
+//        String processed = str.toLowerCase().replaceAll("[^a-zA-z0-9]","");
+//        String rev = new StringBuilder(processed).reverse().toString();
+//
+//        if(processed.equals(rev)){
+//            System.out.println("Is it a palindrome?: True");
+//        }
+//        else {
+//            System.out.println("Is it a palindrome?: False");
+//
+//        }
 
-        if(processed.equals(rev)){
-            System.out.println("Is it a palindrome?: True");
-        }
-        else {
-            System.out.println("Is it a palindrome?: False");
 
-        }
+        String processed = preprocess(str);
+        boolean result = isPalindrome(processed);
 
+        printResult(result);
 
     }
     //UC9 UDF
@@ -164,5 +169,28 @@ public class PalindromeChecker {
 //        }
 //
 //        return Palindromecheckfn(str, start + 1, end - 1);
+//
 //    }
+    //UC11 Functions
+
+    private static String preprocess(String str) {
+        return str.toLowerCase().replaceAll("[^a-z0-9]", "");
+    }
+    private static boolean isPalindrome(String str) {
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+    private static void printResult(boolean result) {
+        System.out.println(result ? "Palindrome" : "Not a Palindrome");
+    }
+
 }
