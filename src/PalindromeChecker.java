@@ -113,27 +113,42 @@ public class PalindromeChecker {
 //            System.out.println("Is it a palindrome?: False");
 //        }
 
-        //UC8
-        boolean isPalindrome = true;
-        LinkedList<Character> charlist = new LinkedList<>();
-        for (char c : str.toCharArray()) {
-            charlist.add(c);
-        }
-        while (charlist.size() > 1) {
-            char first = charlist.removeFirst();
-            char last  = charlist.removeLast();
-            if (first != last) {
-                isPalindrome = false;
-                break;
-            }
-        }
-
-        if (isPalindrome) {
+//        //UC8
+//        boolean isPalindrome = true;
+//        LinkedList<Character> charlist = new LinkedList<>();
+//        for (char c : str.toCharArray()) {
+//            charlist.add(c);
+//        }
+//        while (charlist.size() > 1) {
+//            char first = charlist.removeFirst();
+//            char last  = charlist.removeLast();
+//            if (first != last) {
+//                isPalindrome = false;
+//                break;
+//            }
+//        }
+//
+//        if (isPalindrome) {
+//            System.out.println("Is it a palindrome?: True");
+//        } else {
+//            System.out.println("Is it a palindrome?: False");
+//        }
+        if(Palindromecheckfn(str, 0, str.length() - 1)){
             System.out.println("Is it a palindrome?: True");
         } else {
             System.out.println("Is it a palindrome?: False");
+
         }
 
     }
+    public static boolean Palindromecheckfn(String str, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
 
+        return Palindromecheckfn(str, start + 1, end - 1);
+    }
 }
